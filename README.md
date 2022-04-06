@@ -1,1 +1,1 @@
-# Sistemas-de-Informa-o-Portugol
+# Sistemas-de-Informação-Portugol
