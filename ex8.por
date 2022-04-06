@@ -21,7 +21,7 @@ programa
 		escreva("Digite a quanridade de moedas de um real adcionadas ao cofre: ")
 		leia(umReal)
 
-		valorT = (cinco * 0.5) + (dez * 0.10) + (vintec * 0.25) + (cinq * 0.50) + (umReal * 1.0)
+		valorT = (cinco * 0.05) + (dez * 0.10) + (vintec * 0.25) + (cinq * 0.50) + (umReal * 1.0)
 		
 		escreva("O total adcionado ao cofre foi: ", valorT, " Sendo: ")
 		escreva(cinco, " de cinco centavos, ", dez, " de dez centavos, ", vintec, " de vinte e cinco centavos, ", cinq, " de cinquenta centavos e ", umReal, " de um real")
