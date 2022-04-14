@@ -5,6 +5,7 @@ programa
 	{
 		
 		cadeia candidatos[6] = {"Candidato A", "Candidato B", "Candidato C", "Candidato D", "Branco", "nulo"}
+		cadeia empatados[6] = {".",".",".",".",".","."}
 		cadeia simOuNao, vencedor = "."
 		inteiro candidatoNum[6] = {0,0,0,0,0,0}
 		inteiro voto, maisVotado = 0
@@ -18,8 +19,8 @@ programa
 		//inputs de votos
 		
 		enquanto(simOuNao == "sim"){
-			//print da trabela de candidatos
-		
+			
+		//print da trabela de candidatos
 		escreva("---------- URNA ELETRÔNICA -----------\n")
 		para(inteiro i = 0; i<6; i++){
 			se(i == 5 ou i == 4){
@@ -34,6 +35,7 @@ programa
 			leia(voto)
 			limpa()
 			
+			 //apuração de votos
 			escolha(voto){
 				caso 1: 
 					candidatoNum[0] ++
@@ -65,12 +67,24 @@ programa
 			limpa()
 			
 		}
+
 		
-		escreva("- Iniciando a contagem de votos... \n")
+		//tratando empates (implementando)
+		para(inteiro i = 0; i < 6; i++){
+			para(inteiro j = i+1; j < 6;j++){
+				se(candidatoNum[i] == candidatoNum[j] e candidatoNum[i] != 0){
+					se(candidatoNum[j] == candidatoNum[ j - i -1]){
+						empatados[i] += candidatos[i]
+					}
+					empatados[i] = candidatos[i] + " e " + candidatos[j]
+				}
+			}
+		}
+
+		escreva("\n- Iniciando a contagem de votos... \n")
 
 
 		//outputs de resultados
-		
 		para(inteiro i = 0; i < 6; i++){
 			se(candidatos[i] == "nulo" ou candidatos[i] == "Branco"){
 				se(candidatoNum[i] == 1){
@@ -87,9 +101,21 @@ programa
                     maisVotado = candidatoNum[i]
                     vencedor = candidatos[i]
                }
-			//tratando empates (implementando)
 			
-		}	//segundo turno (sendo idealizado)
+		}
+
+		//outputs de empates
+			escreva("\n")
+			escreva("empatados: ")
+			para(inteiro i = 0; i < 6; i++){
+			se(empatados[i] == "nulo" ou empatados[i] == "Branco"){
+				escreva("porra nenhuma")
+			}senao se(empatados[i] != "."){
+				escreva(empatados[i])
+			}
+		}
+		
+		//segundo turno (sendo idealizado)
 	}
 }
 /* $$$ Portugol Studio $$$ 
